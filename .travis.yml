@@ -1,0 +1,13 @@
+sudo: false
+matrix:
+  include:
+    - language: node_js
+      node_js: 6.9
+      os: linux
+    - language: node_js
+      node_js: 6.9
+      os: osx
+install:
+  - npm install
+script:
+  - node_modules/.bin/karma start karma.conf.js
