@@ -2,18 +2,21 @@ import os
 from subprocess import call
 
 env = dict(os.environ)
-base_env = {'PATH': env['PATH']}
+fail_env = {
+    'PATH': env['PATH']
+}
 
-def iter_env():
-    for k in sorted(env.keys()):
-        yield {k: env[k], 'PATH': env['PATH']}
+pass_env = {
+    'PATH': env['PATH'],
+    'HOME': env['HOME'],
+}
 
 args = ['node_modules/.bin/karma', 'start', 'karma.conf.js', '--color']
-print('basic call')
-rc = call(args, env=base_env)
 
-for ie in iter_env():
-    if rc == 1:
-        break
-    print('using env=%s' % ie)
-    rc = call(args, env=ie)
+print('calling using just PATH defined: %s' % fail_env)
+rc = call(args, env=fail_env)
+print('exit status: %d' % rc)
+
+print('calling using just PATH defined: %s' % pass_env)
+rc = call(args, env=pass_env)
+print('exit status: %d' % rc)
