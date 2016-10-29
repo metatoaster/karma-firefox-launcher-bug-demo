@@ -10,4 +10,4 @@ matrix:
 install:
   - npm install
 script:
-  - node_modules/.bin/karma start karma.conf.js
+  - python start.py
