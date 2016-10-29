@@ -7,6 +7,8 @@ module.exports = function(config) {
     "captureTimeout": 60000,
     "colors": true,
     "files": [
+        "main.js",
+        "test_main.js"
     ],
     "frameworks": ["mocha", "chai", "expect", "sinon"],
     "logLevel": "INFO",
