@@ -10,4 +10,5 @@ matrix:
 install:
   - npm install
 script:
+  - cp index.js node_modules/karma-firefox-launcher/index.js
   - python start.py
